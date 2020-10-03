@@ -1,7 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
-const perceptronRouter = require('./routers/Perceptron');
+const perceptronRouter = require('./src/routers/Perceptron');
 const bodyParser = require('body-parser');
 
 const app = express();
