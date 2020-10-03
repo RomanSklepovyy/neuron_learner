@@ -2,15 +2,14 @@ const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
 const perceptronRouter = require('./src/routers/Perceptron');
-const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Define paths for Express config
-const publicDirectoryPath = path.join(__dirname, '../public');
-const viewsPath = path.join(__dirname, '../templates/views');
-const partialsPath = path.join(__dirname, '../templates/partials');
+const publicDirectoryPath = path.join(__dirname, './public');
+const viewsPath = path.join(__dirname, './templates/views');
+const partialsPath = path.join(__dirname, './templates/partials');
 
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs');
