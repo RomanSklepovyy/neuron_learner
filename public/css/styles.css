@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,500');
+
+
+body {
+    color: #333333;
+    font-family: arial, monospace;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+.perceptron-svg svg {
+    height: 300px;
+    width: 650px;
+}
+
+footer {
+    color: #888888;
+    border-top: 2px solid #eeeeee;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+header {
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 16px;
+}
+
+header a {
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.portrait {
+    width: 250px;
+}
+
+input, button {
+    outline: none;
+    font-size: 16px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #cccccc;
+}
+button {
+    background-color: #888888;
+    cursor: pointer;
+    color: white;
+    border: 1px solid #888888;
+    padding: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: #272974;
+    font-weight: 600;
+}
+
+.currently, .daily {
+    width: 278px;
+    padding: 5px;
+    margin: 20px 0;
+    border: 2px #eeeeee solid;
+    border-radius: 3px;
+}
+
+.number-404 {
+    font-family: "Roboto Mono", "Liberation Mono", Consolas, monospace;
+    font-size: 4rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.text-404 {
+    font-family: "Roboto Mono", "Liberation Mono", Consolas, monospace;
+    font-weight: 300;
+    text-align: center;
+}
+
+.weights, .learning-rate {
+    margin-top: 25px;
+}
+
+.weight {
+    margin-top: 15px;
+}
+
+.accept-buttons {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.out-table {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.out-table table {
+    border-collapse: collapse;
+}
+
+.out-table td{
+    background-color: #f1f1f1;
+    border-color: #a0a0a0;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+}
+
+.number-inputs-content {
+    display: inline-block;
+}
+
+.headers-line td {
+    text-align: center;
+}

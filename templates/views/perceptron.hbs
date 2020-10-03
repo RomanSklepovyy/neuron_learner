@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Perceptron</title>
+    <link rel="icon" href="/img/neuron.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="main-content">
+    {{>header}}
+    <p>Perceptron studying...</p>
+
+    <div class="perceptron-svg">
+        <svg>
+            <circle cx="102" cy="240" r="30" fill="rgb(234,234,234)" stroke-width="1" stroke="rgb(0,0,0)"/>
+            <circle cx="102" cy="160" r="30" fill="rgb(234,234,234)" stroke-width="1" stroke="rgb(0,0,0)"/>
+            <circle cx="102" cy="80" r="30" fill="rgb(234,234,234)" stroke-width="1" stroke="rgb(0,0,0)"/>
+            <line x1="132" y1="240" x2="210" y2="160" stroke="rgb(0,0,0)" stroke-width="1"/>
+            <line x1="132" y1="160" x2="210" y2="160" stroke="rgb(0,0,0)" stroke-width="1"/>
+            <line x1="132" y1="80" x2="210" y2="160" stroke="rgb(0,0,0)" stroke-width="1"/>
+            <circle cx="240" cy="160" r="30" fill="rgb(234,234,234)" stroke-width="1" stroke="rgb(0,0,0)"/>
+            <line x1="270" y1="160" x2="358" y2="160" stroke="rgb(0,0,0)" stroke-width="1"/>
+            <circle cx="388" cy="160" r="30" fill="rgb(234,234,234)" stroke-width="1" stroke="rgb(0,0,0)"/>
+            <text x="100" y="245" alignment-baseline="middle" text-anchor="middle">x3</text>
+            <text x="100" y="165" alignment-baseline="middle" text-anchor="middle">x2</text>
+            <text x="100" y="85" alignment-baseline="middle" text-anchor="middle">x1</text>
+            <text x="238" y="160" font-size="26px" alignment-baseline="middle" text-anchor="middle">Σ</text>
+            <text x="386" y="160" alignment-baseline="middle" text-anchor="middle">output</text>
+        </svg>
+
+        <div class="number-inputs">
+            <form name="number_inputs" id="number_inputs">
+                <label for="amount_inputs">Number of inputs:</label>
+                <input type="number" id="amount-inputs" name="amount_inputs" min="1" max="8">
+                <input type="submit" value="send">
+                <input type="submit" value="preset">
+            </form>
+        </div>
+        <!--
+                <div class="inputs-settings">
+                    <form name="perceptron_inputs id="perceptron_inputs">
+                        <div class="weights">
+                            <input type="number" name="x1" min="0" max="1" required placeholder="x1">
+                            <input type="number" name ="x2" min="0" max="1" required placeholder="x2">
+                            <input type="number" name="x3" min="0" max="1" required placeholder="x3">
+                            <input type="number" name="output" min="0" max="1" required placeholder="res">
+                        </div>
+                        <div class="learning-rate">
+                            <label for="rate">Learning rate:</label>
+                            <input type="number" id="rate" step="0.1" name="learning_rate" min="0.1" max="0.9" required>
+                        </div>
+                        <div class="accept-buttons">
+                            <input type="submit" value="send">
+                            <input type="reset" value="clear">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="inputs">
+                    <form name="perceptron_inputs">
+                        <input class="weight" type="number" name="x1" min="0" max="1" required placeholder="x1">
+                        <input class="weight" type="number" name ="x2" min="0" max="1" required placeholder="x2">
+                        <input class="weight" type="number" name="x3" min="0" max="1" required placeholder="x3">
+                        <input class="weight" type="number" name="output" min="0" max="1" required placeholder="res">
+                        <div class="accept-buttons">
+                            <input type="submit" value="send">
+                            <input type="reset" value="clear">
+                        </div>
+                    </form>
+                </div>
+    -->
+    </div>
+</div>
+
+{{>footer}}
+<script type="module" src="/js/app.js"></script>
+
+</body>
+</html>
