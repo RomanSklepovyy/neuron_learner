@@ -110,8 +110,14 @@ a {
     margin-bottom: 15px;
 }
 
+.main-out-table {
+    border: #333333 solid 2px;
+}
+
 .out-table table {
     border-collapse: collapse;
+    display: inline;
+    margin: 10px;
 }
 
 .out-table td{
@@ -126,6 +132,13 @@ a {
     display: inline-block;
 }
 
-.headers-line td {
+.headers-line {
     text-align: center;
+}
+
+.out-tables-container {
+    width: 650px;
+    padding: 10px 0px;
+    border-top: #333333 solid 4px;
+    margin-top: 10px;
 }

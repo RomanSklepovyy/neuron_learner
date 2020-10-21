@@ -1,5 +1,5 @@
 class Perceptron {
-    constructor(bias=1,learningRate= 0.1,weights=[]) {
+    constructor(bias= 1, learningRate= 0.1, weights= []) {
         this.bias = bias;
         this.learningRate = learningRate;
         this.weights = weights;
@@ -7,11 +7,11 @@ class Perceptron {
         this.threshold = 0;
     }
 
-    init(inputs,bias=this.bias) {
+    init(inputs, bias= this.bias) {
         this.weights = [...inputs.map(i => Math.random() * 10), bias];
     }
 
-    train(inputs,expected) {
+    train(inputs, expected) {
         if (!this.weights.length) this.init(inputs);
         if (inputs.length !== this.weights.length) inputs.push(1);
         let isChecked = true;
@@ -48,7 +48,7 @@ class Perceptron {
         }
     }
 
-    weightedSum(inputs=this.inputs,weights=this.weights) {
+    weightedSum(inputs= this.inputs, weights= this.weights) {
         return inputs.map((inp, i) => inp * weights[i]).reduce((x,y) => x + y, 0);
     }
 
@@ -56,12 +56,10 @@ class Perceptron {
         return this.activate(this.weightedSum(inputs));
     }
 
-    // Sugar syntax evaluate with added bias input
     predict(inputs) {
         return this.evaluate([...inputs, 1]);
     }
 
-    // Heaviside as the activation function
     activate(value) {
         return value >= this.threshold ? 1 : 0;
     }

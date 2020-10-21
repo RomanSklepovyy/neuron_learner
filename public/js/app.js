@@ -37,11 +37,10 @@ const setupInputsFormListener = () => {
         })
             .then(response => response.json())
             .then(data => {
-                clearTable();
+                console.log(data);
                 if (!renderTable(data)) renderError();
             })
             .catch(err => console.log(err));
-
     });
 };
 
@@ -69,7 +68,7 @@ const renderOptionsForm = (amount, isPreset) => {
                         ${renderInputsWeights(amount)}
                         <div class="learning-rate">
                             <label for="rate">Learning rate:</label>
-                            <input type="number" id="rate" step="0.1" name="learning_rate" min="0.1" max="0.9" required>
+                            <input type="number" id="rate" step="0.01" name="learning_rate" min="0.01" max="0.99" required>
                         </div>
                         <div class="accept-buttons">
                             <input type="submit" value="send">
@@ -127,43 +126,109 @@ const renderTable = perceptrons => {
 
     if (!perceptrons.length) return false;
 
+    // let HTML = '<div>\n' +
+    //     '<svg height="20" width="650">\n' +
+    //     '          <line x1="0" y1="10" x2="650" y2="10" style="stroke:rgb(96,3,3);stroke-width:4"></line> \n' +
+    //     '        </svg>\n' +
+    //     '</div>\n';
+
+    let HTML = '';
+
     for (let i = 0; i < perceptrons.length; i++) {
 
-        let HTML =
-            `<div class="out-table">
+         HTML +=
+            `\n<div class="out-table">
+           
             <table>
-                <tr class="headers-line">
-                    <td>ω1</td>
-                    <td>ω2</td>
-                    <td>ω3</td>
-                    <td>ω4</td>
-                    <td>θ</td>
-                    <td>x1</td>
-                    <td>x2</td>
-                    <td>x3</td>
+                <tr>
+                    <td class="headers-line">x1</td>
+                    <td>${perceptrons[i].inputs[0]}</td>
                 </tr>
                 <tr>
-                    <td>${perceptrons[i].weights[0].toFixed(4)}</td>
-                    <td>${perceptrons[i].weights[1].toFixed(4)}</td>
-                    <td>${perceptrons[i].weights[2].toFixed(4)}</td>
-                    <td>${perceptrons[i].weights[3].toFixed(4)}</td>
-                    <td>${perceptrons[i].threshold}</td>
-                    <td>${perceptrons[i].inputs[0]}</td>
+                    <td class="headers-line">x2</td>
                     <td>${perceptrons[i].inputs[1]}</td>
+                </tr>
+                <tr>
+                    <td class="headers-line">x3</td>
                     <td>${perceptrons[i].inputs[2]}</td>
                 </tr>
             </table>
-        </div>`
-
-        mainContainer.insertAdjacentHTML('beforeend', HTML);
+            
+            <table>
+                <tr>
+                    <td class="headers-line">ω1</td>
+                    <td>${perceptrons[i].startWeights[0].toFixed(4)}</td>
+                </tr>
+                <tr>
+                    <td class="headers-line">ω2</td>
+                    <td>${perceptrons[i].startWeights[1].toFixed(4)}</td>
+                </tr>
+                <tr>
+                    <td class="headers-line">ω3</td>
+                    <td>${perceptrons[i].startWeights[2].toFixed(4)}</td>
+                </tr>
+                <tr>
+                    <td class="headers-line">ω4</td>
+                    <td>${perceptrons[i].startWeights[3].toFixed(4)}</td>
+                </tr>
+            </table>
+            
+            <table>
+                <tr>
+                    <td class="headers-line">Y</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="headers-line">T</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="headers-line">η(T-Y)</td>
+                    <td></td>
+                </tr>
+            </table>
+            
+            <table>
+                <tr>
+                    <td class="headers-line">ɑ</td>
+                    <td>${perceptrons[i].sum.toFixed(4)}</td>
+                </tr>
+                <tr>
+                    <td class="headers-line">θ</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="headers-line">δθ</td>
+                    <td>0</td>
+                </tr>
+            </table>
+            
+            <table>
+                <tr>
+                    <td class="headers-line">δω1</td>
+                    <td>${perceptrons[i].finalWeights[0].toFixed(4)}</td>
+                </tr>
+                <tr>
+                    <td class="headers-line">δω2</td>
+                    <td>${perceptrons[i].finalWeights[1].toFixed(4)}</td>
+                </tr>
+                <tr>
+                    <td class="headers-line">δω3</td>
+                    <td>${perceptrons[i].finalWeights[2].toFixed(4)}</td>
+                </tr>
+                <tr>
+                    <td class="headers-line">δω4</td>
+                    <td>${perceptrons[i].finalWeights[3].toFixed(4)}</td>
+                </tr>
+            </table>
+            
+        </div>\n`
     }
 
-    return true;
-}
+    HTML = `<div class="out-tables-container"> ${HTML} </div>`;
+    mainContainer.insertAdjacentHTML('beforeend', HTML);
 
-const clearTable = () => {
-    const table = document.querySelector('.out-table');
-    if (table) table.parentElement.removeChild(table);
+    return true;
 }
 
 const renderError = () => {
